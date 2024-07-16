@@ -2,16 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Some detail regarding Project
-
-In this project I have used an json server package for data api 
-to start this data api run the command 
-`npm run server`
-
-You can add and update the player detail.
-On click of the player card you can update the detail of player
-all the updated and added player is shown in db.json file 
-
 ## Available Scripts
 
 In the project directory, you can run:

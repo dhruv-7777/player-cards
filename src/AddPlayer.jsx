@@ -3,8 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { PlayerContext } from './playerContextProvider.js';
 import './styles/addPlayer.css';
 
-const AddPlayer = ({ onAddPlayer }) => {
-    console.log("Prop", onAddPlayer)
+const AddPlayer = () => {
     const navigate = useNavigate();
     const { addPlayer, updatePlayer } = useContext(PlayerContext);
     const location = useLocation();

@@ -7,7 +7,7 @@ import { TextField, Button, Container, Typography, Box, InputLabel } from '@mui/
 import { PlayerContext } from './playerContextProvider.js';
 import Grid from '@mui/material/Unstable_Grid2';
 
-// Define the schema using zod
+
 const playerSchema = z.object({
     name: z.string().min(2, "Name is required, Minimum Character is 2"),
     country: z.string().min(2, "Country is required, Minimum Character is 2"),

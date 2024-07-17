@@ -12,8 +12,7 @@ const PlayerCard = (props) => {
         <Paper
             className="border border-gray-300 rounded-lg p-4 text-center shadow-md bg-white m-4 min-w-[350px] md:min-w-[245px] cursor-pointer col-6 col-lg-2"
             onClick={clickHandle}
-            sx={{ '&:hover': { backgroundColor: '#f0f0f0' } }} // Hover effect using MUI sx prop
-        >
+            sx={{ '&:hover': { backgroundColor: '#f0f0f0' } }} >
             <Avatar
                 sx={{
                     width: 56,

@@ -1,39 +1,93 @@
-import React, { useContext, useState } from 'react';
+// import React, { useContext, useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { PlayerContext } from './playerContextProvider.js';
+// import PlayerCard from './PlayerCard';
+// const PlayerDashboard = () => {
+//     const navigate = useNavigate();
+//     const [typeOfEvent, setEvent] = useState("ADD");
+//     const [editPlayerDetails, setEditPlayer] = useState({});
+//     const { playerData } = useContext(PlayerContext);
+
+//     const handlePlayerCardClick = (player) => {
+//         setEvent("EDIT");
+//         setEditPlayer(player);
+//         navigate(`/${player.id}`, { state: { type: 'EDIT', player:player }});
+//     };
+//     const handleAddPlayerClick = () => {
+//         navigate('/create', { state: { type: 'ADD' } });
+//     };
+
+//     return (
+//         <div className="md:container md:mx-auto text-center p-10">
+//             <div className="flex justify-between items-center">
+//                 <div>
+//                     <h1 className="text-4xl mb-4 font-bold">Cricket Player Listing</h1>
+//                     <p className="text-base md:text-lg text-gray-600">Explore the top cricket players from around the world.</p>
+//                 </div>
+//                 <button className="mt-0 px-5 py-2 text-base text-white bg-black rounded-lg cursor-pointer" onClick={handleAddPlayerClick}>Add New Player</button>
+//             </div>
+//             <div className="row">
+//                 {playerData.map(player => (
+//                     <PlayerCard onClickEvent={handlePlayerCardClick} key={player.id} player={player} />
+//                 ))}
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default PlayerDashboard;
+
+
+
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PlayerContext } from './playerContextProvider.js';
 import PlayerCard from './PlayerCard';
+import { Button, Container, Typography, Grid } from '@mui/material'; // Import Material UI components
+
 const PlayerDashboard = () => {
     const navigate = useNavigate();
-    const [typeOfEvent, setEvent] = useState("ADD");
-    const [editPlayerDetails, setEditPlayer] = useState({});
     const { playerData } = useContext(PlayerContext);
 
     const handlePlayerCardClick = (player) => {
-        setEvent("EDIT");
-        setEditPlayer(player);
-        navigate(`/${player.id}`, { state: { type: 'EDIT', player:player }});
+        navigate(`/${player.id}`, { state: { type: 'EDIT', player: player } });
     };
+
     const handleAddPlayerClick = () => {
         navigate('/create', { state: { type: 'ADD' } });
     };
 
     return (
-        <div className="md:container md:mx-auto text-center p-10">
-            <div className="flex justify-between items-center">
+        <Container maxWidth="xl" sx={{ textAlign: 'center', my: 10 }}>
+            <div className="flex justify-between items-center mb-6">
                 <div>
-                    <h1 className="text-4xl mb-4 font-bold">Cricket Player Listing</h1>
-                    <p className="text-base md:text-lg text-gray-600">Explore the top cricket players from around the world.</p>
+                    <Typography variant="h4" mb={3} fontWeight="bold">
+                        Cricket Player Listing
+                    </Typography>
+                    <Typography variant="body1" className="text-gray-600 text-base md:text-lg">
+                        Explore the top cricket players from around the world.
+                    </Typography>
                 </div>
-                <button className="mt-0 px-5 py-2 text-base text-white bg-black rounded-lg cursor-pointer" onClick={handleAddPlayerClick}>Add New Player</button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    className="py-2 text-white rounded-lg"
+                    onClick={handleAddPlayerClick}
+                    sx={{ backgroundColor: 'black' }}
+                >
+                    Add New Player
+                </Button>
             </div>
-            <div className="row">
-                {playerData.map(player => (
-                    <PlayerCard onClickEvent={handlePlayerCardClick} key={player.id} player={player} />
+            <Grid container spacing={3}>
+                {playerData.map((player) => (
+                    <Grid item xs={12} sm={6} md={3} key={player.id}>
+                        <PlayerCard onClickEvent={handlePlayerCardClick} player={player} />
+                    </Grid>
                 ))}
-            </div>
-        </div>
+            </Grid>
+        </Container>
     );
 };
 
 export default PlayerDashboard;
-

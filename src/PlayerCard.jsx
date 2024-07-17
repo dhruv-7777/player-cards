@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Avatar, Paper } from '@mui/material'; // Importing Material UI components
+import { Typography, Avatar, Paper } from '@mui/material';
 
 const PlayerCard = (props) => {
     const { player, onClickEvent } = props;
@@ -18,12 +18,12 @@ const PlayerCard = (props) => {
                     width: 56,
                     height: 56,
                     color: '#000',
-                    backgroundColor: '#e8e8e8', // Default background color for Avatar
+                    backgroundColor: '#e8e8e8',
                     mx: 'auto',
                     mb: 2,
                 }}
             >
-                {player.name.split(' ')[0][0]} {/* Displaying initials */}
+                {player.name.split(' ')[0][0]}
             </Avatar>
             <Typography variant="h6" gutterBottom>
                 {player.name}
